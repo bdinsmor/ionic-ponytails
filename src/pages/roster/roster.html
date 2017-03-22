@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Ponytail Roster</ion-title>
+    </ion-navbar>
+    <ion-fab right bottom edge>
+        <button ion-fab color="danger" (click)="addPlayers()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+</ion-header>
+
+<ion-content class="list-mini-content">
+    <div class="list-mini">
+        <ion-list reorder="true" 
+           (ionItemReorder)="$event.applyTo(roster.players)">
+            <ion-item class="list-item" [style.color]="item.textColor" [style.background]="item.color" *ngFor="let item of roster.players">
+                <ion-item>
+                    <ion-row no-padding class="content-row one-line" [style.color]="item.textColor" [style.background]="item.color">
+                            <h3 class="item-title">{{item.name}}</h3>
+                            <p class="item-description">{{item.birthDate | date: "MMM dd yyyy"}}</p>
+                        
+                    </ion-row>
+                </ion-item>
+                
+            </ion-item>
+        </ion-list>
+
+    </div>
+   
+</ion-content>

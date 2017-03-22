@@ -7,7 +7,8 @@ import { ScheduleService } from './schedule.service';
 import { LineupPage } from '../lineup/lineup';
 @Component({
   selector: 'lineups-page',
-  templateUrl: 'lineups.html'
+  templateUrl: 'lineups.html',
+  providers: [ScheduleService],
 })
 export class LineupsPage {
   schedule: ScheduleModel = new ScheduleModel();
@@ -35,6 +36,10 @@ export class LineupsPage {
 
   openLineup(item) {
       this.nav.setRoot(this.lineupPage);
+  }
+
+  add() {
+    this.nav.push(LineupPage);
   }
 
 

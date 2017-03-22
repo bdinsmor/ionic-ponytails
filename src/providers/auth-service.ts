@@ -12,13 +12,20 @@ export class AuthService {
     });
   }
 
-  get authenticated(): boolean {
-    return this.authState !== null;
+  get authenticated(): AngularFireAuth {
+    return this.auth$;
   }
 
   signInWithGoogle(): firebase.Promise<FirebaseAuthState> {
     return this.auth$.login({
       provider: AuthProviders.Google,
+      method: AuthMethods.Popup
+    });
+  }
+
+  signInWithFacebook(): firebase.Promise<FirebaseAuthState> {
+    return this.auth$.login({
+      provider: AuthProviders.Facebook,
       method: AuthMethods.Popup
     });
   }

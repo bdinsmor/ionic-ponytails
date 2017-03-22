@@ -8,6 +8,10 @@ lineup-page {
         color: #c2c2c2;
         margin: 8px 16px 16px;
     }
+
+    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
+        bottom: 60px !important;
+    }
     .position-label {
         position: absolute;
         border-radius: 4px;
@@ -18,20 +22,66 @@ lineup-page {
         -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
         box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     }
-    .pitcher {
-        top: 50%;
-        left: 43%;
-    }
-    .catcher {
-        bottom: 10%;
-        left: 43%;
-    }
-    .first {
-        top: 50%;
-        right: 15%;
-    }
+   .pitcher {
+    margin: 155px 165px
+}
+
+.catcher {
+    margin: 315px 165px
+}
+
+.firstbase {
+    margin: 155px 285px
+}
+
+.secondbase {
+    margin: 120px 240px
+}
+
+.over {
+    margin: 95px 145px
+}
+
+.shortstop {
+    margin: 120px 100px
+}
+
+.leftcenterfield {
+    margin: 45px 70px
+}
+
+.rightcenterfield {
+    margin: 45px 265px
+}
+
+.thirdbase {
+    margin: 155px 25px
+}
+
+.centerfield {
+    margin: 60px 122px
+}
+
+.rightfield {
+    margin: 105px 310px
+}
+
+.leftfield {
+    margin: 105px 25px
+}
+
+.sittingBox {
+    position: absolute;
+    margin: 260px 285px;
+    padding: 4px;
+    width: 90px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 10
+}
     .lineup-content {
-        background-image: url('../assets/images/field.jpg');
+        background-image: url('../assets/images/field2.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;

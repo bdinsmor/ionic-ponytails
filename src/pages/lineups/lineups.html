@@ -1,12 +1,11 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>Ponytail Schedule</ion-title>
-    </ion-navbar>
-    <ion-fab right bottom edge>
-        <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+ 
+   
 </ion-header>
 <ion-content class="schedule-content">
+     <ion-fab right bottom>
+        <button ion-fab color="danger" (click)="add()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
     <ion-list class="schedule-list">
         <ion-item class="schedule-item" (click)="openLineup(item)" *ngFor="let item of schedule.upcoming">
             <ion-row>

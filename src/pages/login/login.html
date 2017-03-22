@@ -6,14 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar text-center>
     <ion-title>Welcome to the Ponytail Express</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
-<button ion-button outline (click)="signInWithGoogle()">Google</button>
+<ion-content text-center center class="card-background-page">
+  <ion-grid center>
+    <ion-card>
+      <ion-card-header>
+        <div>Please Login</div>
+      </ion-card-header>
+      <ion-row center responsive-sm>
+        <ion-col>
+          <button ion-button round color="danger" (click)="signInWithGoogle()">
+       <ion-icon name="pe-google"></ion-icon><div>Google</div>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button round (click)="signInWithFacebook()">
+       <ion-icon name="pe-facebook"></ion-icon><div>Facebook</div>
+      </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
 </ion-content>

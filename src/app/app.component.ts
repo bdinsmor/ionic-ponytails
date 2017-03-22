@@ -1,16 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav, App } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { AuthService } from '../providers/auth-service';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { FirebaseAuthState } from 'angularfire2';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
-  rootPage = HomePage;
+  rootPage = LoginPage;
 
   constructor(public auth:AuthService, platform: Platform) {
     platform.ready().then(() => {
@@ -22,12 +23,15 @@ export class MyApp implements OnInit {
   }
 
   ngOnInit() {
-    if(!this.auth.authenticated) {
-
-        // go to login page
-        console.log("going to login page");
-         this.nav.setRoot(LoginPage);
+    
+    this.auth.authenticated.subscribe((state: FirebaseAuthState) => {
+      if(state && state.auth && state.auth.uid !== null) {
+        console.log("found user, going to home page");
+        this.nav.setRoot(HomePage);
+      } else {
+        this.nav.setRoot(LoginPage);
       }
+    });
     
   }
 }

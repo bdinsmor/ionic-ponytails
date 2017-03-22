@@ -1,10 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RosterPage } from '../pages/roster/roster';
 import { LineupPage } from '../pages/lineup/lineup';
+import { LineupsPage } from '../pages/lineups/lineups';
 import { AccountPage } from '../pages/account/account';
 // Import the AF2 Module
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
@@ -26,6 +28,7 @@ const firebaseConfig = {
     LoginPage,
     RosterPage,
     LineupPage,
+    LineupsPage,
     AccountPage
   ],
   imports: [
@@ -41,7 +44,8 @@ const firebaseConfig = {
     HomePage,
     LoginPage,
     RosterPage,
-    LineupPage
+    LineupPage,
+    LineupsPage,
   ],
   providers: [AuthService,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

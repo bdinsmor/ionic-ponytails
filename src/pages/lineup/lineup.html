@@ -27,7 +27,7 @@
     <div [ngSwitch]="mode" style="height:100%">
         <div *ngSwitchCase="'batting'">
             <ion-list>
-                <ion-item-sliding *ngFor="let batter of lineup.battingOrder">
+                <ion-item-sliding *ngFor="let batter of playing">
                     <ion-item>
 
                         <h2>{{batter.name}}</h2>
@@ -44,10 +44,10 @@
         <div *ngSwitchDefault class="lineup-content">
             <h2 class="section-title padding-top">Inning: {{currentInning}}</h2>
             <ion-slides (ionSlideDidChange)="slideChanged()" pager>
-                <ion-slide *ngFor="let inning of lineup.fielding">
-                    <div *ngFor="let player of inning.positions">
-                        <ion-select class="position-label {{player.position.label}}" [(ngModel)]="player.player">
-                            <ion-option value="player.player">{{player.player}}</ion-option>
+                <ion-slide *ngFor="let inning of playingInnings" ion-scroll="false">
+                    <div *ngFor="let p of inning.positions">
+                        <ion-select class="position-label {{p.position.style}}" [(ngModel)]="p.player">
+                            <ion-option *ngFor="let gp of playing" [value]="gp">{{gp.name}}</ion-option>
                         </ion-select>
                     </div>
                 </ion-slide>
